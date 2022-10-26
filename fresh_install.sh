@@ -27,4 +27,5 @@ conda activate $env_name
 conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch -y
 
 
+reset
 
