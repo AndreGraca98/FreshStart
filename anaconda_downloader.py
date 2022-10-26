@@ -3,6 +3,9 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 from tqdm import tqdm
+import sys
+
+
 
 # Anaconda versions archive
 url = "https://repo.anaconda.com/archive/"
@@ -35,12 +38,18 @@ print("Anaconda file:", final_conda_version)
 
 
 # User input
-while 1:
+if sys.argv[1:]:
+    force = True if sys.argv[1].lower() in ['-y', 'y', 'yes',  't', 'true'] else False
+else:
+    force = False
+    
+while not force:
     inp = str(input("Download? [Y]/n : "))
     if inp.lower() in ("yes", "y", 'no', "n", ""):
         inp = True if inp.lower() in ("yes", "y", "") else False
         break
-
+else:
+    inp = True
 
 def is_downloadable(url):
     """
@@ -57,12 +66,14 @@ def is_downloadable(url):
         return False
     return True
 
+
 # Download file
 if is_downloadable(final_url) and inp:
     filesize = int(requests.head(final_url).headers["Content-Length"])
+    print(f'Downloading {final_url} ... ')
     with requests.get(final_url, stream=True, allow_redirects=True) as r, \
          open(Path.home() / final_conda_version, "wb") as f, \
-         tqdm(unit="B", unit_scale=True, unit_divisor=1024, total=filesize, desc=f'Downloading {final_url} ... ') as progress:
+         tqdm(unit="B", unit_scale=True, unit_divisor=1024, total=filesize) as progress:
          
          for chunk in r.iter_content(chunk_size=1024):
             datasize = f.write(chunk)
