@@ -1,4 +1,4 @@
-set -e
+# set -e
 
 sudo apt update -y
 sudo apt upgrade
