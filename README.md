@@ -5,13 +5,13 @@ Install anaconda and pytorch in a freshly created ubuntu environment.
 ## Install
 
 ```bash
-source fresh_install.sh
+source install_anaconda.sh
+# Reload terminal window
+source create_torch_env.sh
 ```
 
 ## Try Resnet18 with MNIST example
 
-<!-- NOTE: Reload terminal before running the example -->
-
 ```bash
-python mnist_example.py
+python mnist_train_example.py
 ```

@@ -14,18 +14,5 @@ rm "$HOME/$conda_file"
 sudo apt-get install htop    # Usage: htop
 
 # Install GpuStat
-pip3 install gpustat    # Usage: gpustat -cuFP --watch --color;
-
-# Install git
-sudo apt install git
-
-
-# Create new conda environment
-env_name="my_env"
-conda create -n $env_name python=3.7 tqdm -y
-conda activate $env_name
-conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch -y
-
-
-reset
+sudo apt install gpustat    # Usage: gpustat -cuFP --watch --color;
 
