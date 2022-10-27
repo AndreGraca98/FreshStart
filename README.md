@@ -7,7 +7,7 @@ Install anaconda and pytorch in a freshly created ubuntu environment.
 ```bash
 cd && git clone https://github.com/AndreGraca98/FreshStart.git && cd FreshStart/
 source install_anaconda.sh
-# Close terminal window
+# Open new terminal window
 cd FreshStart/ && source create_torch_env.sh
 ```
 
