@@ -1,7 +1,7 @@
 
 # Create new conda environment
 env_name="my_env"
-conda create -n $env_name python=3.7
+conda create -n $env_name python=3.7 -y
 conda activate $env_name
 conda install tqdm -y
 conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch -y
