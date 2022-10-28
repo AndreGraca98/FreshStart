@@ -10,7 +10,13 @@ from torchvision.models import resnet18
 from torchvision.transforms import Compose, Normalize, ToTensor
 from tqdm import tqdm
 
-DEVICE = "cuda"
+if torch.cuda.is_available():
+    DEVICE = "cuda"
+    print("[ CPU / [CUDA] ]-----> CUDA device found!")  
+else: 
+    DEVICE = "cpu"
+    print("[ [CPU] / CUDA ]-----> CUDA device NOT found!")
+
 LR = 1e3
 BATCHSIZE = 128
 EPOCHS = 3

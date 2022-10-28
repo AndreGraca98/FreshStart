@@ -11,8 +11,10 @@ bash "$HOME/$conda_file" -b -u # Force install
 rm "$HOME/$conda_file"
 
 # Install htop
-sudo apt-get install htop    # Usage: htop
+sudo apt-get install htop -y    # Usage: htop
 
 # Install GpuStat
-sudo apt install gpustat    # Usage: gpustat -cuFP --watch --color;
+sudo apt install gpustat -y   # Usage: gpustat -cuFP --watch --color;
+
+source ~/.bashrc
 
